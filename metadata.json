@@ -1,0 +1,5 @@
+{
+  "name": "THOR AI RV Designer",
+  "description": "An AI-powered chat platform for RV manufacturers to design and iterate on RV concepts using text and images. Features include image generation, editing, suggested modifications, and chat history management.",
+  "requestFramePermissions": []
+}
