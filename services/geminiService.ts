@@ -22,7 +22,7 @@ export const generateImageWithPrompt = async (prompt: string): Promise<AIMessage
     const ai = getAiClient();
     const fullPrompt = `Photorealistic, high-resolution image of a recreational vehicle (RV) based on the following description: "${prompt}". The image should be in a 16:9 aspect ratio and look like a professional photograph for a manufacturer's brochure.`;
     
-    // Using gemini-3-pro-image-preview for high quality generation
+    // Using gemini-3-pro-image-preview (Best quality)
     const response = await ai.models.generateContent({
         model: 'gemini-3-pro-image-preview',
         contents: {
@@ -31,7 +31,7 @@ export const generateImageWithPrompt = async (prompt: string): Promise<AIMessage
         config: {
           imageConfig: {
             aspectRatio: '16:9',
-            imageSize: '2K', // High quality
+            imageSize: '2K', // High quality 2K resolution
           },
         },
     });
@@ -86,14 +86,14 @@ export const generateWithNanoBanana = async (prompt: string, images: { data: str
     ],
   };
 
-  // Upgraded to gemini-3-pro-image-preview for best editing results
+  // Using gemini-3-pro-image-preview for best editing capabilities
   const response = await ai.models.generateContent({
     model: 'gemini-3-pro-image-preview',
     contents: contents,
     config: {
         imageConfig: {
-            imageSize: '2K',
-            aspectRatio: '16:9'
+            aspectRatio: '16:9',
+            imageSize: '2K' // High quality 2K resolution
         }
     },
   });
@@ -161,7 +161,7 @@ For example: "Incorporate a slide-out stargazing panoramic roof", "Design a tran
 Return your 4 suggestions as a JSON array of strings.`;
     }
 
-    // Upgraded to gemini-3-flash-preview for smarter text reasoning
+    // Using gemini-3-flash-preview for fast and smart text suggestions
     const response: GenerateContentResponse = await ai.models.generateContent({
         model: "gemini-3-flash-preview",
         contents: contents,
@@ -214,7 +214,7 @@ Return the result as a JSON array of objects. Each object must have a "name" key
       ]
     };
 
-    // Upgraded to gemini-3-flash-preview
+    // Using gemini-3-flash-preview
     const response: GenerateContentResponse = await ai.models.generateContent({
         model: "gemini-3-flash-preview",
         contents: contents,
@@ -272,7 +272,7 @@ Return the result as a JSON array of 5 strings.`;
       ]
     };
 
-    // Upgraded to gemini-3-flash-preview
+    // Using gemini-3-flash-preview
     const response: GenerateContentResponse = await ai.models.generateContent({
         model: "gemini-3-flash-preview",
         contents: contents,
